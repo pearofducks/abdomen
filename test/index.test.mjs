@@ -52,4 +52,14 @@ test('it can safely be called multiple times', () => {
   assert.ok((mem3 - mem4) < 0.1)
 })
 
+test('it can be setup and torn down multiple times', () => {
+  assert.not.ok(global.window)
+  setup()
+  assert.ok(global.window)
+  teardown()
+  assert.not.ok(global.window)
+  setup()
+  assert.ok(global.window)
+})
+
 test.run()
