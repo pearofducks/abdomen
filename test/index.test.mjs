@@ -38,18 +38,24 @@ test('it has RAF available', () => {
   assert.is(typeof global.window.requestAnimationFrame, 'function')
 })
 
+const toPercentage = n => (n * 100).toFixed(4) + '%'
+
 test('it can safely be called multiple times', () => {
   assert.not.ok(global.window)
   setup()
   const mem1 = Math.round((process.memoryUsage().rss / 1048576) * 100) / 100;
   Array.from({ length: 1000 }).forEach(setup)
   const mem2 = Math.round((process.memoryUsage().rss / 1048576) * 100) / 100;
-  assert.ok((mem1 - mem2) < 0.1)
+  const diff = (mem2 - mem1) / mem1
+  // console.log("Memory diff from calling 1000x setup", toPercentage(diff))
+  assert.ok(diff < 0.001)
 
   const mem3 = Math.round((process.memoryUsage().rss / 1048576) * 100) / 100;
   Array.from({ length: 1000 }).forEach(teardown)
   const mem4 = Math.round((process.memoryUsage().rss / 1048576) * 100) / 100;
-  assert.ok((mem3 - mem4) < 0.1)
+  const diff2 = (mem4 - mem3) / mem3
+  // console.log("Memory diff from calling 1000x teardown", toPercentage(diff2))
+  assert.ok(diff2 < 0.001)
 })
 
 test('it can be setup and torn down multiple times', () => {
