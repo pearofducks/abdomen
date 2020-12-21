@@ -12,21 +12,25 @@ yarn add --dev abdomen
 
 abdomen supports both modules and commonjs
 
-*modules*
+**modules**
 
 ```js
 import 'abdomen/setup'
 ```
 
-*commonjs*
+**commonjs**
 
 ```js
 require('abdomen/setup')
 ```
 
-## api
+or
 
-*manual setup*
+```shell
+node -r abdomen/setup
+```
+
+## api
 
 ```js
 import { setup, teardown } from 'abdomen'
