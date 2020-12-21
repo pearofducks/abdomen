@@ -1,0 +1,38 @@
+{
+  "name": "abdomen",
+  "description": "Tiny utility to setup JSDOM globally for tests",
+  "version": "0.9.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test/index.test.mjs && node test/setup.test.mjs",
+    "build": "rollup -c"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./cjs/index.cjs"
+    },
+    "./setup": {
+      "import": "./setup.mjs",
+      "require": "./cjs/setup.cjs"
+    }
+  },
+  "files": [
+    "index.mjs",
+    "setup.mjs",
+    "cjs/"
+  ],
+  "dependencies": {
+    "jsdom": "^16.4.0"
+  },
+  "devDependencies": {
+    "rollup": "^2.35.1",
+    "uvu": "^0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "pearofducks/abdomen"
+  },
+  "author": "Dave Honneffer <pearofducks@gmail.com>"
+}
