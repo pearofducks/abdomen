@@ -30,8 +30,8 @@
     "jsdom": "^16.4.0"
   },
   "devDependencies": {
-    "jsdom": "^16.4.0",
-    "rollup": "^2.35.1",
+    "jsdom": "^16.5.3",
+    "rollup": "^2.48.0",
     "uvu": "^0.5.1"
   },
   "repository": {
