@@ -12,6 +12,7 @@ const removeGlobalKey = k => delete global[k]
 const isSetup = () => ('abdomen' in global)
 export const teardown = () => isSetup() ? windowAttributes.forEach(removeGlobalKey) : null
 
+// TODO: add jsdoc
 export const setup = ({ html = defaultHtml, url = 'http://localhost:8080', ...options } = {}) => {
   const context = { teardown }
   if (isSetup()) return context
