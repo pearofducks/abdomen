@@ -27,12 +27,12 @@
     "cjs/"
   ],
   "peerDependencies": {
-    "jsdom": "^16.4.0"
+    "jsdom": "*"
   },
   "devDependencies": {
-    "jsdom": "^16.5.3",
-    "rollup": "^2.48.0",
-    "uvu": "^0.5.1"
+    "jsdom": "^19.0.0",
+    "rollup": "^2.66.0",
+    "uvu": "^0.5.3"
   },
   "repository": {
     "type": "git",
